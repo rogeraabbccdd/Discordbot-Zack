@@ -36,7 +36,7 @@ client.on('message', async (msg) => {
   try {
     if (msg.content && !msg.author.bot) {
       if (msg.content === '!zack randimg') {
-        msg.react(process.env.LOADING_EMOJI)
+        msg.react(process.env.LOADING_EMOJI.toString())
         const result = await rand()
         if (result.success) {
           const attachment = new Discord.MessageAttachment(result.data.image)
@@ -49,7 +49,7 @@ client.on('message', async (msg) => {
           await msg.react('❌')
         }
       } else if (msg.content === '!zack rand') {
-        msg.react(process.env.LOADING_EMOJI)
+        msg.react(process.env.LOADING_EMOJI.toString())
         const result = await rand()
         msg.channel.send(result.data.link)
         const attachment = new Discord.MessageAttachment(result.data.image)
@@ -57,7 +57,7 @@ client.on('message', async (msg) => {
         await msg.reactions.removeAll()
         await msg.react('✅')
       } else if (msg.content.substring(0, 6) === '!zack ') {
-        msg.react(process.env.LOADING_EMOJI)
+        msg.react(process.env.LOADING_EMOJI.toString())
         const text = msg.content.split('!zack ')[1]
         const data = await genText(text)
         msg.channel.send(data)
