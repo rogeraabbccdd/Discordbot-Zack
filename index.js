@@ -81,4 +81,6 @@ client.on('message', async (msg) => {
   }
 })
 
-client.login(process.env.DISCORD_TOKEN)
+client.login(process.env.DISCORD_TOKEN).then(() => {
+  client.user.setActivity('使用 !zackhelp 查詢指令', { type: 'LISTENING' })
+})
