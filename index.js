@@ -35,7 +35,16 @@ client.on('ready', () => {
 client.on('message', async (msg) => {
   try {
     if (msg.content && !msg.author.bot) {
-      if (msg.content === '!zack randimg') {
+      if (msg.content === '!zackhelp') {
+        msg.react(process.env.LOADING_EMOJI.toString())
+        const reply = '• `!zack rand` - 隨機一則財哥語錄\n' +
+        '• `!zack randimg` - 隨機一張財哥語錄\n' +
+        '• `!zack 句子` - 將輸入的文字轉成財哥體\n' +
+        '• 機器人原始碼 https://github.com/rogeraabbccdd/Discordbot-Zack'
+        msg.channel.send(reply)
+        await msg.reactions.removeAll()
+        await msg.react('✅')
+      } else if (msg.content === '!zack randimg') {
         msg.react(process.env.LOADING_EMOJI.toString())
         const result = await rand()
         if (result.success) {
