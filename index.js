@@ -37,10 +37,15 @@ client.on('message', async (msg) => {
     if (msg.content && !msg.author.bot) {
       if (msg.content === '!zackhelp') {
         msg.react(process.env.LOADING_EMOJI.toString())
-        const reply = '• `!zack rand` - 隨機一則財哥語錄\n' +
-        '• `!zack randimg` - 隨機一張財哥語錄\n' +
-        '• `!zack 句子` - 將輸入的文字轉成財哥體\n' +
-        '• 機器人原始碼 https://github.com/rogeraabbccdd/Discordbot-Zack'
+        const reply =
+          ':desktop:  機器人指令\n' +
+          '• `!zack rand` - 隨機一則財哥語錄\n' +
+          '• `!zack randimg` - 隨機一張財哥語錄\n' +
+          '• `!zack 句子` - 將輸入的文字轉成財哥體\n' +
+          '\n:link:  相關連結\n' +
+          '• 財哥 Facebook: https://www.facebook.com/caigezhuanyebinlangtan\n' +
+          '• 邀請連結: https://discord.com/oauth2/authorize?client_id=602028564333723648&scope=bot&permissions=387136\n' +
+          '• 機器人原始碼: https://github.com/rogeraabbccdd/Discordbot-Zack'
         msg.channel.send(reply)
         await msg.reactions.removeAll()
         await msg.react('✅')
